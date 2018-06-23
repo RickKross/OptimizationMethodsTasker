@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    Вопрос {{ current_question.number }} из {{ total_questions }}
+{% endblock %}
+
+{% block base_content %}
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading"> Вопрос {{ current_question.number }} из {{ total_questions }} </h1>
+            <p class="lead">{{ current_question.question.text | safe }}</p>
+
+            {% if current_question.question.img %}
+                <p class="lead">
+                    <img src="{{ current_question.question.img }}" width="100%">
+                </p>
+            {% endif %}
+            <div class="lead">
+                <form method="post" action="{{ url_for('answer', idx=current_question.number) }}">
+                    {% for answer in current_question.answers %}
+                        <div class="form-group form-check custom-control custom-radio">
+                            <input type="radio" id="customRadio{{ loop.index }}"
+                                   name="quesition{{ current_question.number }}" value="{{ loop.index - 1 }}"
+                                   class="custom-control-input">
+                            <label class="custom-control-label"
+                                   for="customRadio{{ loop.index }}">{{ answer[0] }}</label>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-secondary">Дальше</button>
+                </form>
+            </div>
+        </main>
+    </div>
+{% endblock %}

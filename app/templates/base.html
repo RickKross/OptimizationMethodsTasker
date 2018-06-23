@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/cover.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/static/js/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="{{ body_class }}">
+    {% block base_content %}{% endblock %}
+</body>
+
+</html>
