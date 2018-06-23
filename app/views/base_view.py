@@ -88,7 +88,7 @@ def result():
         'total_questions': total,
         'result': {
             'success': success,
-            'time':  '%.2f сек' % session.get('finish', -1),
+            'time':  '%.0f мин %.0f сек' % divmod(session.get('finish', 0), 60),
             'percent': ('%.2f%%' % (success / total * 100)) if total > 0 else '<Ошибка>'
         }
     }
