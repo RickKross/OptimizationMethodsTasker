@@ -16,16 +16,6 @@ if getattr(sys, 'frozen', False):
 
 app = Flask(__name__, **kw)
 
-print('-' * 64,
-      '',
-      'Для прохождения задания необходимо в браузере перейти по адресу',
-      'http://127.0.0.1:8080/',
-      '',
-      'При закрытии сервер остановистся и прогресс сбросится',
-      '',
-      '-' * 64, sep='\n')
-
-
 app.config.from_object(Config)
 
 app.secret_key = str(uuid4())
